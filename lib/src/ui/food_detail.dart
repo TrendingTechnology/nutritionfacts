@@ -195,7 +195,7 @@ class FoodDetailState extends State<FoodDetail> {
                                 if (snapshot.data.labelNutrients != null)
                                   Text(
                                       findPercentage(
-                                          Constants.dailyTotalFatValue,
+                                          Constants.DAILY_TOTAL_FAT_VALUE,
                                           snapshot.data.labelNutrients.fat
                                               .getDoubleValue()),
                                       style: TextStyle(
@@ -222,7 +222,7 @@ class FoodDetailState extends State<FoodDetail> {
                                 if (snapshot.data.labelNutrients != null)
                                   Text(
                                       findPercentage(
-                                          Constants.dailySatFatValue,
+                                          Constants.DAILY_SAT_FAT_VALUE,
                                           snapshot
                                               .data.labelNutrients.saturatedFat
                                               .getDoubleValue()),
@@ -267,7 +267,7 @@ class FoodDetailState extends State<FoodDetail> {
                                 if (snapshot.data.labelNutrients != null)
                                   Text(
                                       findPercentage(
-                                          Constants.dailyCholesterolValue,
+                                          Constants.DAILY_CHOLESTEROL_VALUE,
                                           snapshot
                                               .data.labelNutrients.cholesterol
                                               .getDoubleValue()),
@@ -293,7 +293,7 @@ class FoodDetailState extends State<FoodDetail> {
                                 if (snapshot.data.labelNutrients != null)
                                   Text(
                                       findPercentage(
-                                          Constants.dailySodiumValue,
+                                          Constants.DAILY_SODIUM_VALUE,
                                           snapshot.data.labelNutrients.sodium
                                               .getDoubleValue()),
                                       style: TextStyle(
@@ -319,7 +319,7 @@ class FoodDetailState extends State<FoodDetail> {
                                 if (snapshot.data.labelNutrients != null)
                                   Text(
                                       findPercentage(
-                                          Constants.dailyTotalCarbohydrateValue,
+                                          Constants.DAILY_TOTAL_CARBOHYDRATE_VALUE,
                                           snapshot
                                               .data.labelNutrients.carbohydrates
                                               .getDoubleValue()),
@@ -346,7 +346,7 @@ class FoodDetailState extends State<FoodDetail> {
                                 if (snapshot.data.labelNutrients != null)
                                   Text(
                                       findPercentage(
-                                          Constants.dailyDietaryFiberValue,
+                                          Constants.DAILY_DIETARY_FIBER_VALUE,
                                           snapshot.data.labelNutrients.fiber
                                               .getDoubleValue()),
                                       style: TextStyle(
@@ -409,7 +409,7 @@ class FoodDetailState extends State<FoodDetail> {
                                 if (snapshot.data.labelNutrients != null)
                                   Text(
                                       findPercentage(
-                                          Constants.dailyCalciumValue,
+                                          Constants.DAILY_CALCIUM_VALUE,
                                           snapshot.data.labelNutrients.calcium
                                               .getDoubleValue()),
                                       style: TextStyle(
@@ -434,7 +434,7 @@ class FoodDetailState extends State<FoodDetail> {
                                 if (snapshot.data.labelNutrients != null)
                                   Text(
                                       findPercentage(
-                                          Constants.dailyIronValue,
+                                          Constants.DAILY_IRON_VALUE,
                                           snapshot.data.labelNutrients.iron
                                               .getDoubleValue()),
                                       style: TextStyle(
@@ -459,7 +459,7 @@ class FoodDetailState extends State<FoodDetail> {
                                 if (snapshot.data.labelNutrients != null)
                                   Text(
                                       findPercentage(
-                                          Constants.dailyPotassiumValue,
+                                          Constants.DAILY_POTASSIUM_VALUE,
                                           snapshot.data.labelNutrients.potassium
                                               .getDoubleValue()),
                                       style: TextStyle(

@@ -1,11 +1,11 @@
 library constants;
 
-const double dailyTotalFatValue = 65;
-const double dailySatFatValue = 20;
-const double dailyCholesterolValue = 300;
-const double dailySodiumValue = 2400;
-const double dailyTotalCarbohydrateValue = 300;
-const double dailyDietaryFiberValue = 25;
-const double dailyCalciumValue = 1300;
-const double dailyIronValue = 18;
-const double dailyPotassiumValue = 4700;
+const double DAILY_TOTAL_FAT_VALUE = 65;
+const double DAILY_SAT_FAT_VALUE = 20;
+const double DAILY_CHOLESTEROL_VALUE = 300;
+const double DAILY_SODIUM_VALUE = 2400;
+const double DAILY_TOTAL_CARBOHYDRATE_VALUE = 300;
+const double DAILY_DIETARY_FIBER_VALUE = 25;
+const double DAILY_CALCIUM_VALUE = 1300;
+const double DAILY_IRON_VALUE = 18;
+const double DAILY_POTASSIUM_VALUE = 4700;

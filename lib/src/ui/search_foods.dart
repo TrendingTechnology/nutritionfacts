@@ -6,8 +6,8 @@ import 'package:nutritionfacts/src/ui/widget/loading.dart';
 
 import '../blocs/food_detail_bloc_provider.dart';
 import '../blocs/foods_bloc.dart';
-import '../enum/SortByEnum.dart';
-import '../enum/SortOrderEnum.dart';
+import '../enum/sort_by_enum.dart';
+import '../enum/sort_order_enum.dart';
 import '../extension/extension.dart';
 import '../models/search_item.dart';
 import 'food_detail.dart';
