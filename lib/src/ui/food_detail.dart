@@ -81,7 +81,7 @@ class FoodDetailState extends State<FoodDetail> {
                           Text('Nutrition Facts ',
                               style: TextStyle(
                                 fontWeight: FontWeight.w900,
-                                fontSize: 48.0,
+                                fontSize: 40.0,
                               )),
                           Divider(
                               thickness: 10.0,
