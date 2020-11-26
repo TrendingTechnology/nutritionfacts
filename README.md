@@ -2,7 +2,7 @@
 
 A new Flutter application using BLOC pattern.
 
-<img src="https://user-images.githubusercontent.com/8689604/100272181-bc2cf080-2f6b-11eb-9984-e5ddadc332f1.png" width="150" >
+![ic_launcher](https://user-images.githubusercontent.com/8689604/100318984-0051dc80-2fd0-11eb-8229-dbbaabae1873.png)
 
 ## ▶️ Getting Started
 
@@ -23,6 +23,14 @@ samples, guidance on mobile development, and a full API reference.
 List             |  Detail
 :-------------------------:|:-------------------------:
 ![Simulator Screen Shot - iPhone 12 Pro Max - 2020-11-25 at 21 56 10](https://user-images.githubusercontent.com/8689604/100271856-3b6df480-2f6b-11eb-94f5-744442a1ab04.png)  |  ![Simulator Screen Shot - iPhone 12 Pro Max - 2020-11-25 at 21 56 26](https://user-images.githubusercontent.com/8689604/100272001-7839eb80-2f6b-11eb-9206-2018cbee9b60.png)
+
+## Tech Stack
+
+-   [Dart](https://dart.dev/) - Dart is a client-optimized programming language for apps on multiple platforms.
+
+-   [BLoC Architecture](https://medium.com/flutter-community/bloc-architecture-why-so-important-d9b29f06680e) - Its a state management system for Flutter recommended by Google developers. It helps in managing state and make access to data from a central place in your project.
+
+-   [RxDart](https://pub.dev/packages/rxdart) - RxDart is an implementation of the popular reactiveX api for asynchronous programming, leveraging the native Dart Streams api.
 
 
 ## 📱 Android Screenshots
