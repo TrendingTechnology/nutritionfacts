@@ -1,5 +1,8 @@
 library constants;
 
+const String PAGE_SIZE = '50';
+const String PAGE_NUMBER = '1';
+
 const double DAILY_TOTAL_FAT_VALUE = 65;
 const double DAILY_SAT_FAT_VALUE = 20;
 const double DAILY_CHOLESTEROL_VALUE = 300;

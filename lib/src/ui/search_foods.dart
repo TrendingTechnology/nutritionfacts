@@ -6,6 +6,7 @@ import 'package:nutritionfacts/src/ui/widget/loading.dart';
 
 import '../blocs/food_detail_bloc_provider.dart';
 import '../blocs/foods_bloc.dart';
+import '../constants/constants.dart' as Constants;
 import '../enum/sort_by_enum.dart';
 import '../enum/sort_order_enum.dart';
 import '../extension/extension.dart';
@@ -38,7 +39,7 @@ class SearchFoodsState extends State<SearchFoods> {
 
   @override
   void dispose() {
-    foodsBlock.dispose();
+    foodsBloc.dispose();
     super.dispose();
   }
 
@@ -52,15 +53,15 @@ class SearchFoodsState extends State<SearchFoods> {
 
       String body = jsonEncode({
         'query': searchController.text,
-        'pageSize': '50',
-        'pageNumber': '1',
+        'pageSize': Constants.PAGE_SIZE,
+        'pageNumber': Constants.PAGE_NUMBER,
         'sortBy': sortBy,
         'sortOrder': sortOrder,
-        'brandName': brandNameController.text,
+        'brandOwner': brandNameController.text,
         'dataType': dataTypes,
       });
 
-      foodsBlock.fetchSearchItem(body);
+      foodsBloc.fetchSearchItem(body);
     }
   }
 
@@ -70,100 +71,112 @@ class SearchFoodsState extends State<SearchFoods> {
             borderRadius: BorderRadius.vertical(top: Radius.circular(25.0))),
         context: context,
         builder: (BuildContext bc) {
-          return Container(
-            child: Wrap(
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.all(16.0),
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Sort',
-                    style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18.0),
-                  ),
+          return StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+              return Container(
+                child: Wrap(
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.all(16.0),
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Sort',
+                        style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.0),
+                      ),
+                    ),
+                    ListTile(
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                        dense: true,
+                        title: Text('A-Z (Name)'),
+                        selected:
+                            sortBy == SortByEnum.lowercaseDescription.name &&
+                                sortOrder == SortOrderEnum.asc.name,
+                        onTap: () => {
+                              setState(() {
+                                sortBy = SortByEnum.lowercaseDescription.name;
+                                sortOrder = SortOrderEnum.asc.name;
+                              }),
+                              _searchFoods(),
+                              Navigator.pop(context)
+                            }),
+                    ListTile(
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                        dense: true,
+                        title: Text('Z-A (Name)'),
+                        selected:
+                            sortBy == SortByEnum.lowercaseDescription.name &&
+                                sortOrder == SortOrderEnum.desc.name,
+                        onTap: () => {
+                              setState(() {
+                                sortBy = SortByEnum.lowercaseDescription.name;
+                                sortOrder = SortOrderEnum.desc.name;
+                              }),
+                              _searchFoods(),
+                              Navigator.pop(context)
+                            }),
+                    ListTile(
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                        dense: true,
+                        title: Text('A-Z (Brand Name)'),
+                        selected: sortBy == SortByEnum.brandOwner.name &&
+                            sortOrder == SortOrderEnum.asc.name,
+                        onTap: () => {
+                              setState(() {
+                                sortBy = SortByEnum.brandOwner.name;
+                                sortOrder = SortOrderEnum.asc.name;
+                              }),
+                              _searchFoods(),
+                              Navigator.pop(context)
+                            }),
+                    ListTile(
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                        dense: true,
+                        title: Text('Z-A (Brand Name)'),
+                        selected: sortBy == SortByEnum.brandOwner.name &&
+                            sortOrder == SortOrderEnum.desc.name,
+                        onTap: () => {
+                              setState(() {
+                                sortBy = SortByEnum.brandOwner.name;
+                                sortOrder = SortOrderEnum.desc.name;
+                              }),
+                              _searchFoods(),
+                              Navigator.pop(context)
+                            }),
+                    ListTile(
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                        dense: true,
+                        title: Text('A-Z (Score)'),
+                        selected: sortBy == SortByEnum.score.name &&
+                            sortOrder == SortOrderEnum.asc.name,
+                        onTap: () => {
+                              setState(() {
+                                sortBy = SortByEnum.score.name;
+                                sortOrder = SortOrderEnum.asc.name;
+                              }),
+                              _searchFoods(),
+                              Navigator.pop(context)
+                            }),
+                    ListTile(
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                        dense: true,
+                        title: Text('Z-A (Score)'),
+                        selected: sortBy == SortByEnum.score.name &&
+                            sortOrder == SortOrderEnum.desc.name,
+                        onTap: () => {
+                              setState(() {
+                                sortBy = SortByEnum.score.name;
+                                sortOrder = SortOrderEnum.desc.name;
+                              }),
+                              _searchFoods(),
+                              Navigator.pop(context)
+                            }),
+                  ],
                 ),
-                ListTile(
-                    trailing: Icon(Icons.keyboard_arrow_right),
-                    dense: true,
-                    title: Text('A-Z (Name)'),
-                    selected: sortBy == SortByEnum.lowercaseDescription.name &&
-                        sortOrder == SortOrderEnum.asc.name,
-                    onTap: () => {
-                          sortBy = SortByEnum.lowercaseDescription.name,
-                          sortOrder = SortOrderEnum.asc.name,
-                          _searchFoods(),
-                          Navigator.pop(context),
-                          FocusScope.of(context).previousFocus()
-                        }),
-                ListTile(
-                    trailing: Icon(Icons.keyboard_arrow_right),
-                    dense: true,
-                    title: Text('Z-A (Name)'),
-                    selected: sortBy == SortByEnum.lowercaseDescription.name &&
-                        sortOrder == SortOrderEnum.desc.name,
-                    onTap: () => {
-                          sortBy = SortByEnum.lowercaseDescription.name,
-                          sortOrder = SortOrderEnum.desc.name,
-                          _searchFoods(),
-                          Navigator.pop(context),
-                          FocusScope.of(context).previousFocus()
-                        }),
-                ListTile(
-                    trailing: Icon(Icons.keyboard_arrow_right),
-                    dense: true,
-                    title: Text('A-Z (Brand Name)'),
-                    selected: sortBy == SortByEnum.brandOwner.name &&
-                        sortOrder == SortOrderEnum.asc.name,
-                    onTap: () => {
-                          sortBy = SortByEnum.brandOwner.name,
-                          sortOrder = SortOrderEnum.asc.name,
-                          _searchFoods(),
-                          Navigator.pop(context),
-                          FocusScope.of(context).previousFocus()
-                        }),
-                ListTile(
-                    trailing: Icon(Icons.keyboard_arrow_right),
-                    dense: true,
-                    title: Text('Z-A (Brand Name)'),
-                    selected: sortBy == SortByEnum.brandOwner.name &&
-                        sortOrder == SortOrderEnum.desc.name,
-                    onTap: () => {
-                          sortBy = SortByEnum.brandOwner.name,
-                          sortOrder = SortOrderEnum.desc.name,
-                          _searchFoods(),
-                          Navigator.pop(context),
-                          FocusScope.of(context).previousFocus()
-                        }),
-                ListTile(
-                    trailing: Icon(Icons.keyboard_arrow_right),
-                    dense: true,
-                    title: Text('A-Z (Score)'),
-                    selected: sortBy == SortByEnum.score.name &&
-                        sortOrder == SortOrderEnum.asc.name,
-                    onTap: () => {
-                          sortBy = SortByEnum.score.name,
-                          sortOrder = SortOrderEnum.asc.name,
-                          _searchFoods(),
-                          Navigator.pop(context),
-                          FocusScope.of(context).previousFocus()
-                        }),
-                ListTile(
-                    trailing: Icon(Icons.keyboard_arrow_right),
-                    dense: true,
-                    title: Text('Z-A (Score)'),
-                    selected: sortBy == SortByEnum.score.name &&
-                        sortOrder == SortOrderEnum.desc.name,
-                    onTap: () => {
-                          sortBy = SortByEnum.score.name,
-                          sortOrder = SortOrderEnum.desc.name,
-                          _searchFoods(),
-                          Navigator.pop(context),
-                          FocusScope.of(context).previousFocus()
-                        }),
-              ],
-            ),
+              );
+            },
           );
         });
   }
@@ -176,11 +189,13 @@ class SearchFoodsState extends State<SearchFoods> {
         context: context,
         builder: (BuildContext bc) {
           return StatefulBuilder(
-            builder: (BuildContext context,
-                StateSetter setState /*You can rename this!*/) {
+            builder: (BuildContext context, StateSetter setState) {
               return Container(
                 padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).viewInsets.bottom),
+                    bottom: MediaQuery
+                        .of(context)
+                        .viewInsets
+                        .bottom),
                 child: Wrap(
                   children: <Widget>[
                     Container(
@@ -189,7 +204,9 @@ class SearchFoodsState extends State<SearchFoods> {
                       child: Text(
                         'Filter',
                         style: TextStyle(
-                            color: Theme.of(context).primaryColor,
+                            color: Theme
+                                .of(context)
+                                .primaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 18.0),
                       ),
@@ -465,13 +482,24 @@ class SearchFoodsState extends State<SearchFoods> {
           actions: <Widget>[
             if (hasSearchableQuery)
               IconButton(
-                  icon: Icon(
+                icon: Stack(children: <Widget>[
+                  Icon(
                     Icons.sort,
                     color: Colors.white,
                   ),
-                  onPressed: () {
-                    _sortingModalBottomSheet(context);
-                  }),
+                  if (sortBy != SortByEnum.score.name ||
+                      sortOrder != SortOrderEnum.asc.name)
+                    Positioned(
+                      top: 0.0,
+                      right: 0.0,
+                      child: Icon(Icons.brightness_1,
+                          size: 8.0, color: Colors.redAccent),
+                    )
+                ]),
+                onPressed: () {
+                  _sortingModalBottomSheet(context);
+                },
+              ),
             if (hasSearchableQuery)
               IconButton(
                 icon: Stack(children: <Widget>[
@@ -556,7 +584,7 @@ class SearchFoodsState extends State<SearchFoods> {
             ),
             if (hasSearchableQuery)
               StreamBuilder(
-                stream: foodsBlock.searchFoods,
+                stream: foodsBloc.searchFoods,
                 builder: (context, AsyncSnapshot<SearchItem> snapshot) {
                   if (snapshot.hasData) {
                     if (snapshot.data.currentPage == 1 &&

@@ -10,6 +10,7 @@ class FoodsBloc {
   Stream<SearchItem> get searchFoods => _foodsFetcher.stream;
 
   fetchSearchItem(String body) async {
+    _foodsFetcher.sink.add(null);
     SearchItem searchFoods = await _repository.fetchSearchItem(body);
     _foodsFetcher.sink.add(searchFoods);
   }
@@ -19,4 +20,4 @@ class FoodsBloc {
   }
 }
 
-final foodsBlock = FoodsBloc();
+final foodsBloc = FoodsBloc();

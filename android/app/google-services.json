@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "571522602666",
+    "firebase_url": "https://nutritionfacts-898fa.firebaseio.com",
+    "project_id": "nutritionfacts-898fa",
+    "storage_bucket": "nutritionfacts-898fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571522602666:android:e854e7d7b53aebff9ce2d3",
+        "android_client_info": {
+          "package_name": "co.app.nutritionfacts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "571522602666-hs3398ngth320gm7nsfl7gp45nej3hfe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDgvbfeJjI5hF_sf2zJB__60duTo2QhEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "571522602666-hs3398ngth320gm7nsfl7gp45nej3hfe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
